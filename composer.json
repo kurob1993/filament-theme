@@ -1,6 +1,5 @@
 {
-    "name": "kurob1993/filament-theme",
-    "version": "0.0.1",
+    "name": "krakatau/filament-theme",
     "description": "Custom Filament admin theme package",
     "keywords": [
         "filament",
