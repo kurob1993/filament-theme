@@ -4,6 +4,7 @@ namespace Krakatau\FilamentTheme;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
+use Filament\View\PanelsRenderHook;
 
 class KrakatauThemePlugin implements Plugin
 {
@@ -19,7 +20,12 @@ class KrakatauThemePlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        $panel->viteTheme($this->resolveThemeEntry());
+        $panel
+            ->viteTheme($this->resolveThemeEntry())
+            ->renderHook(
+                PanelsRenderHook::TOPBAR_START,
+                fn () => view('krakatau-theme::title-topbar')
+            );
     }
 
     public function boot(Panel $panel): void
